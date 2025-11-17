@@ -1,0 +1,20 @@
+CREATE TABLE tb_rev_25 (
+  nono INTEGER,
+  nonota TEXT,
+  tglnota DATE,
+  nopolisi TEXT,
+  km TEXT,
+  nospp TEXT,
+  namapelanggan TEXT,
+  jasaumum INTEGER,
+  jasabp INTEGER,
+  part INTEGER,
+  oli INTEGER,
+  bahan INTEGER,
+  sublet INTEGER,
+  discount INTEGER,
+  materai INTEGER,
+  dpp INTEGER,
+  ppn INTEGER,
+  total INTEGER
+);
