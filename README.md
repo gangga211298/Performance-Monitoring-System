@@ -45,12 +45,15 @@ Data was collected from various internal branch systems. Key tables used include
 * `tb_rev_25` & `tb_rev_24`: Service & Sparepart revenue data
 * `tb_ss_25`, `tb_as_25`, `tb_epk_25`: Detailed service activity, recommendation, and lead time data
 * `tb_ring`, `tb_foa`, `tb_job`: Segmentation and classification data (Ring Area, FOA, Job Type: CPUS/SBE/GR)
+<img width="400" height="583" alt="Picture1" src="https://github.com/user-attachments/assets/d832e86f-54bb-42ec-8f64-a556bf46980c" />
 
 ### 2. Database Storage (PostgreSQL Design)
 All data is stored in PostgreSQL. The database is designed with a modular architecture:
 * **Raw Data Layer** – Direct extracts from operational systems.
 * **Cleaned Data Layer** – Processed and validated data (e.g., using `DISTINCT ON` to clean `tb_promo_clean`, `tb_ring_clean`).
 * **Summary Layer** – Aggregated and pre-calculated datasets optimized for dashboard consumption, produced after SQL transformation.
+<img width="507" height="435" alt="Picture2" src="https://github.com/user-attachments/assets/588828ee-a8cd-47f2-9144-0c98868a2b7c" />
+
 
 ### 3. Data Processing (SQL Transformation)
 Data transformation was performed using SQL in PostgreSQL, resulting in the core datasets (`tb_dashboard_25`, `tb_revenue_25`, etc.)
@@ -58,6 +61,7 @@ Data transformation was performed using SQL in PostgreSQL, resulting in the core
 * **Data Cleaning:** Applied `DISTINCT ON` to ensure unique and consistent data to prevent metric inflation during joins.
 * **Data Transformation:** Key operations include **Table Joining (LEFT JOIN)** (e.g., joining `tb_spp_25` with `tb_job`, `tb_foa`, and `tb_target`) and **Variable Creation (CASE WHEN)** to classify data (e.g., Booking vs Non-Booking, Fleet vs Retail). Used `COALESCE()` for missing value handling.
 * **Feature Engineering:** Created additional features like time-based dimensions, MRA contribution calculation, and applying **Window Functions** (`ROW_NUMBER()`) partitioned by Nomor SPP to ensure only the latest record is used.
+<img width="718" height="404" alt="Picture3" src="https://github.com/user-attachments/assets/97729a18-81a1-4699-ac24-c227f847048f" />
 
 ### 4. Data Visualization (Power BI Dashboard)
 The dashboard was developed in Power BI using **DirectQuery** to PostgreSQL, ensuring real-time data display.
@@ -70,6 +74,9 @@ It presents several key operational metrics:
 * MRA Activity and Contribution
 
 The dashboard includes interactive filters (date, Service Advisor, service type) for flexible daily, weekly, monthly, and annual analysis.
+![Picture4](https://github.com/user-attachments/assets/e1de4ff9-2703-4428-898b-36fefd11842c)
+![Picture5](https://github.com/user-attachments/assets/5c3d3ccf-2e8c-4af6-8b7c-5542d9834033)
+![Picture6](https://github.com/user-attachments/assets/f03b1d6a-1fdf-4252-a855-56fac0541113)
 
 ---
 
