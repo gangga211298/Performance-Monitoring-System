@@ -74,6 +74,7 @@ It presents several key operational metrics:
 * MRA Activity and Contribution
 
 The dashboard includes interactive filters (date, Service Advisor, service type) for flexible daily, weekly, monthly, and annual analysis.
+
 ![Picture4](https://github.com/user-attachments/assets/e1de4ff9-2703-4428-898b-36fefd11842c)
 ![Picture5](https://github.com/user-attachments/assets/5c3d3ccf-2e8c-4af6-8b7c-5542d9834033)
 ![Picture6](https://github.com/user-attachments/assets/f03b1d6a-1fdf-4252-a855-56fac0541113)
